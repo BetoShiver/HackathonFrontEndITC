@@ -25,8 +25,8 @@ export default function Alert(props) {
     }
 
     const handleAnotherAlert = () => {
-        setAlertDone(false);
-    }
+      setAlertDone(false);
+    };
 
     useEffect(() => {
         setAlertInfo(props.restaurant);
@@ -45,7 +45,7 @@ export default function Alert(props) {
             }
             {!alertDone && <>
                 <h3 className="pt-5">Create an Alert</h3>
-                <div className="myContainer mt-5 d-flex flex-row">
+                <div className="myContainer  d-flex flex-row">
                     <div className className="form-container p-3">
                         <Form onSubmit={(e) => handleSubmit(e)}>
                             <Form.Row>

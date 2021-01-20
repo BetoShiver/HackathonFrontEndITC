@@ -1,9 +1,11 @@
-.myContainer{
-    width:75%;
-    margin: auto
+.myContainer {
+    width: 75%;
+    margin: auto;
+    
+    
 }
 
-.form-container{
+.form-container {
     flex-basis: 60%;
     border: 1px solid white;
 }

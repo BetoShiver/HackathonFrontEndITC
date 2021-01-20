@@ -6,15 +6,17 @@ import Swal from 'sweetalert2';
 import Sample from './lib/sample.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
+import  Alert  from './Component/Alert';
+import Prediction from "./Component/Prediction";
 let Api_Url = 'https://indigestion-prediction-backend.herokuapp.com/api/restaurants/'
 
 function App() {
   const [data, setData] = useState([]);
   const [options, setOptions] = useState([]);
   const [selected, setSelected] = useState('');
-  const [alert, setAlert] = useState(false)
-  //const [sample, setSample] = useState([])
-  let Sample = ['select one', 'green', 'red', 'blue'];
+  const [showAlert, setShowAlert] = useState(false)
+  const [showPredict, setShowPredict] = useState(false)
+  const [alertProps, setAlertProps] = useState({})
 
    function toTitleCase(str) {
      return str.replace(/\w\S*/g, function (txt) {
@@ -22,27 +24,21 @@ function App() {
      });
    }
 
-  const tabOption = (data) => {
-    
-    let reducedObject = data.map((element) => {
-      return({
-        text: `${toTitleCase(element.DBA_Name)} at ${toTitleCase(
-          element.Address
-        )}`,
-        license: data.license
-      });
+  const addTabOption = (data) => { 
+    data.forEach(element => {
+      element.text = `${toTitleCase(element.DBA_Name)} at ${toTitleCase(
+        element.Address
+      )}`;
     });
-   
-    return reducedObject
   };
   
   useEffect(() => {
     fetch(`${Api_Url}`)
       .then(res => res.json())
       .then(d => {
-        let options = tabOption(d)
-        setData(options)
-        let selections = options.map(elem => elem.text)
+        addTabOption(d)
+        setData(d)
+        let selections = d.map(elem => elem.text)
         selections.sort()
         setOptions(selections);
       })
@@ -51,11 +47,47 @@ function App() {
       }  )
   }, []);
 
- 
+  const handleSelected = (e) => {
+    setSelected(e)
+    setShowAlert(false);
+    setShowPredict(false);
+
+  }
+  
+  const showAssessment = () => {
+    setShowAlert(false);
+    
+    try {
+      const restaurant = data.find(elem => elem.text === selected)
+     let rest = { restaurantName: restaurant.DBA_Name, restaurantAddress: restaurant.Address, License: restaurant.License };
+     setAlertProps(rest)
+     setShowPredict(true)
+    } catch {
+      return
+     }
+    
+  }
+
+  const handleShowAlert = () => {
+      setShowPredict(false);
+
+      try {
+        const restaurant = data.find((elem) => elem.text === selected);
+        let rest = {
+          restaurantName: restaurant.DBA_Name,
+          restaurantAddress: restaurant.Address,
+          License: restaurant.License
+        };
+        setAlertProps(rest);
+        setShowAlert(true);
+      } catch {
+        return;
+      }
+    };
 
   return (
-    <div className="App">
-      <div className="top px-3 my-2 py-3 rounded">
+    <div>
+      <div className="top px-3 py-3 rounded">
         <h2>Welcome to Indigestion Alert</h2>
         <hr />
         To report a problem or see our predicted rating, please select a
@@ -63,7 +95,7 @@ function App() {
         <div className="selector   my-3">
           <Combobox
             data={options}
-            onChange={(e) => setSelected(e)}
+            onChange={(e) => handleSelected(e)}
             caseSensitive={false}
             minLength={3}
             filter="contains"
@@ -71,15 +103,28 @@ function App() {
         </div>{' '}
         {selected !== '' && (
           <p className="btns mt-2">
-            <Button className="mr-5 font-weight-bold btn" variant="danger">
-              Report a problem
+            <Button
+              className="mr-5 font-weight-bold btn"
+              variant="danger"
+              onClick={() => handleShowAlert()}
+            >
+              Report a potential problem
             </Button>
-            <Button className="ml-5 font-weight-bold btn" variant="info" onClick={setAlert(true)}>
-              {' '}
+            <Button
+              className="ml-5 font-weight-bold btn"
+              variant="secondary"
+              onClick={() => showAssessment()}
+            >
               See our assessment
             </Button>
           </p>
         )}
+      </div>
+      <div className="App">
+        <div className="container">
+          {showPredict && <Prediction restaurant={alertProps} />}
+          {showAlert && <Alert restaurant={alertProps} />}
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,12 @@
 .App {
   background-color: rgb(223, 215, 215);
-  padding: 10px;
+  background-size: 100% 100%;
+  background-image: url(./lib/Logo.jpeg);
+  padding: 0;
   color: white;
-  font-size: 20pt;
-  height: 100vh;
-  text-align: start;
+  font-size: 20px;
+min-height: 100vh;  
+text-align: start;
 }
 
 .btns {
@@ -12,12 +14,15 @@
   justify-content: space-between;
 }
 
-.btn{
+.btn {
   width: 40%;
   color: white;
   font-weight: 600;
 }
 
 .top {
-    background-color: #222;
+  background-color: rgb(224, 203, 203);
+  color: white;
+  font-weight: 700;
+  font-size: large;
 }
