@@ -1,0 +1,19 @@
+.history-restaurant{
+    background-color: #222;
+  padding: 10px;
+  color: white;
+  font-size: 20pt;
+    border: 1px solid #26A2B8;
+    flex-basis: 40%;
+}
+
+.container-prediction{
+    width:75%;
+    margin: auto;
+    margin-top: 100px;
+    
+}
+
+.dougnut{
+    background-color: white;
+}
