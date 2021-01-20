@@ -102,6 +102,7 @@ function App() {
           />
         </div>{' '}
         {selected !== '' && (
+          
           <p className="btns mt-2">
             <Button
               className="mr-5 font-weight-bold btn"
@@ -123,7 +124,7 @@ function App() {
       <div className="App">
         <div className="container">
           {showPredict && <Prediction restaurant={alertProps} />}
-          {showAlert && <Alert restaurant={alertProps} />}
+          {showAlert && <Alert restaurant={alertProps} allRestaurant = {data}/>}
         </div>
       </div>
     </div>

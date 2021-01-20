@@ -41,11 +41,26 @@ function Charts(props) {
                 data={{
                     labels: labels,
                     datasets: [{
-                        label: 'My First dataset',
+                        label: 'Inspections',
                         backgroundColor: [
                             'rgba(17, 171, 17, 0.2)',
                             'rgba(245, 193, 22, 0.2)',
-                            'rgba(226, 19, 19, 0.2)'
+                            'rgba(226, 19, 19, 0.2)',
+                            'rgba(124, 32, 86, 0.2)',
+                            'rgba(150, 32, 06, 0.2)',
+                            'rgba(86, 15, 10, 0.2)',
+                            'rgba(17, 171, 17, 0.2)',
+                            'rgba(245, 193, 22, 0.2)',
+                            'rgba(226, 19, 19, 0.2)',
+                            'rgba(124, 32, 86, 0.2)',
+                            'rgba(150, 32, 06, 0.2)',
+                            'rgba(86, 15, 10, 0.2)',
+                            'rgba(17, 171, 17, 0.2)',
+                            'rgba(245, 193, 22, 0.2)',
+                            'rgba(226, 19, 19, 0.2)',
+                            'rgba(124, 32, 86, 0.2)',
+                            'rgba(150, 32, 06, 0.2)',
+                            'rgba(86, 15, 10, 0.2)'
                         ],
                         data: dataGraph
                     }]
@@ -53,7 +68,25 @@ function Charts(props) {
                 height={300}
 
                 options={{
-                    maintainAspectRatio: false,
+                    title: {
+                        display:true,
+                        text: 'Gravity',
+                        // fontsize: ""
+                    },
+                    legend: {
+                        display:false,
+                    },
+                    scales: {
+                        yAxes:[
+                            {
+                                ticks: {
+                                    min:0,
+                                    max: 3,
+                                    stepSize:0.5,
+                                }
+                            }
+                        ]
+                    }
                 }}
             />
         </div>

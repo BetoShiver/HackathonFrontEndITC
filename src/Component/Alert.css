@@ -1,11 +1,11 @@
 .myContainer {
-    width: 75%;
-    margin: auto;
+    width: 100%;
     
     
 }
 
 .form-container {
-    flex-basis: 60%;
     border: 1px solid white;
+    width: 470px;
+    height: 540px
 }

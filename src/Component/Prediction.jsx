@@ -35,10 +35,10 @@ export default function Prediction(props) {
     return (
       <>
         {loading && (
-          <div className="pt-5 mx-5">
+          <div className="pt-5 mx-3">
             {console.log(labels)}
             {console.log(dataGraph)}
-            <h3 className="mb-5">
+            <h3 className="mb-5 text-center">
                         Please read the information below about the restaurant
             </h3>
                     {labels.length && dataGraph.length && 
@@ -57,6 +57,8 @@ export default function Prediction(props) {
                       placeholder=""
                     />
                   </Form.Group>
+                  </Form.Row>
+                  <Form.Row className="mt-4 mx-3">
                   <Form.Group as={Col}>
                     <Form.Label className="ml-2 float-left">
                       Licence number
@@ -69,8 +71,6 @@ export default function Prediction(props) {
                       placeholder=""
                     />
                   </Form.Group>
-                </Form.Row>
-                <Form.Row className="mx-3">
                   <Form.Group as={Col}>
                     <Form.Label className="ml-2 float-left">
                       number Of inspections
@@ -83,6 +83,9 @@ export default function Prediction(props) {
                       placeholder=""
                     />
                   </Form.Group>
+                </Form.Row>
+                <Form.Row className="mx-3">
+                  
                   <Form.Group as={Col}>
                     <Form.Label className="ml-2 float-left">
                       first inspection
@@ -109,7 +112,7 @@ export default function Prediction(props) {
                   </Form.Group>
                 </Form.Row>
                         </div>
-              <div>
+              <div className = "dougnut">
                 {console.log(labels)}
                 {console.log(dataGraph)}
                 {labels.length && dataGraph.length && (
