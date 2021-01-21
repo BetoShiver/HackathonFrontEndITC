@@ -28,15 +28,15 @@ function App() {
     });
   }
 
-  const addTabOption = (data) => {
-    data.forEach((element) => {
-      element.text = `${toTitleCase(element.DBA_Name)} at ${toTitleCase(
-        element.Address 
-      )}`;
-    });
-  };
-
+  
   useEffect(() => {
+    const addTabOption = (data) => {
+      data.forEach((element) => {
+        element.text = `${toTitleCase(element.DBA_Name)} at ${toTitleCase(
+          element.Address 
+        )}`;
+      });
+    };
     fetch(`${Api_Url}`)
       .then((res) => res.json())
       .then((d) => {
@@ -129,7 +129,7 @@ function App() {
             minLength={3}
             filter="contains"
           />
-        </div>{' '}
+        </div>
         {selected !== '' && (
           <p className="btns mt-2">
             <Button
@@ -151,8 +151,8 @@ function App() {
       </div>
       <div className="App">
         <div className="container">
-        {ministry &&  <div className= 'pt-5'><Ministry /></div>}
-        {mConfirm && <MinistryConfirm confirm={() => grantAccess()} deny={ () => denyAccess()}/>}
+          {ministry &&  <div className= 'pt-5'><Ministry /></div>}
+          {mConfirm && <MinistryConfirm confirm={() => grantAccess()} deny={ () => denyAccess()}/>}
           {showPredict && <Prediction restaurant={alertProps} />}
           {showAlert && <Alert restaurant={alertProps} allRestaurant={data} />}
         </div>

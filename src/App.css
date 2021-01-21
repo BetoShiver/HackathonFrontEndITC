@@ -1,5 +1,5 @@
 .App {
-  background-color: rgb(223, 215, 215);
+  background-color: rgb(74, 89, 134);
   background-size: 100vw 100vh;
   background-image: url(./lib/Logo.jpeg);
   background-repeat: repeat-y;
@@ -22,7 +22,7 @@
 }
 
 .top {
-  background-color: rgb(224, 203, 203);
+  background-color: rgb(74, 89, 134);
   color: white;
   font-weight: 700;
   font-size: large;
