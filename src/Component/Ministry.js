@@ -2,23 +2,6 @@ import { useEffect, useState } from 'react'
 import './Minstry.css';
 import Pagination from "./Pagination";
 
-const fake = [
-  {
-    DBA_Name: 'pizza',
-    Address: 'who cares',
-    NumberOfAlerts: 5,
-    Prediction: 1,
-    License: 123
-  },
-  {
-    DBA_Name: 'sushi',
-    Address: 'fake street',
-    NumberOfAlerts: 2,
-    Prediction: 2,
-    License: 321
-  }
-];
-
 export default function Ministry() {
   const [list, setList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
