@@ -64,6 +64,7 @@ function App() {
     setShowAlert(false);
     setMConfirm(false);
     setMinistry(false);
+    
 
     try {
       const restaurant = data.find((elem) => elem.text === selected);
@@ -112,12 +113,18 @@ function App() {
 
   }
 
-  return (
+  const openMConfirm = () => {
+    setMConfirm(true)
+    setShowAlert(false)
+    setShowPredict(false)
+  }
+
+  return ( 
     <div>
       <div className="top px-3 py-3 rounded">
         <div className="title">
           <h2>Welcome to Indigert</h2>
-          <div onClick={() => setMConfirm(true)} className="titleBtn">
+          <div onClick={() => openMConfirm()} className="titleBtn">
             Access Health Ministry Section
           </div>
         </div>
