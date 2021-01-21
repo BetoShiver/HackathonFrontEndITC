@@ -21,6 +21,7 @@ function App() {
   const [alertProps, setAlertProps] = useState({});
   const [mConfirm, setMConfirm] = useState(false)
   const [ministry, setMinistry] = useState(false)
+  const [nameCity, setNameCity] = useState();
 
   function toTitleCase(str) {
     return str.replace(/\w\S*/g, function (txt) {
@@ -90,6 +91,8 @@ function App() {
         restaurantAddress: restaurant.Address,
         License: restaurant.License
       };
+      let cityName = restaurant.City;
+      setNameCity(cityName);
       setAlertProps(rest);
       setShowAlert(true);
     } catch {
@@ -154,7 +157,7 @@ function App() {
           {ministry &&  <div className= 'pt-5'><Ministry /></div>}
           {mConfirm && <MinistryConfirm confirm={() => grantAccess()} deny={ () => denyAccess()}/>}
           {showPredict && <Prediction restaurant={alertProps} />}
-          {showAlert && <Alert restaurant={alertProps} allRestaurant={data} />}
+          {showAlert && <Alert restaurant={alertProps} allRestaurant={data} nameCity={nameCity}/>}
         </div>
       </div>
     </div>
