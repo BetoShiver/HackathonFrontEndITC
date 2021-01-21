@@ -2,15 +2,27 @@ import './Prediction.css';
 import { useState, useEffect } from 'react';
 
 
-export default function OurPrediction() {
+export default function OurPrediction(props) {
     const [predicted, setPredicted] = useState(1)
 
-    useEffect(() => {
-        fetch('https://itc-yair-gunicorn-flask.herokuapp.com/json')
-            .then(r => r.json())
-        .then(d=> console.log(d))
+    // useEffect(() => {
+    //     fetch(
+    //       `https://indigestion-prediction-backend.herokuapp.com/api/inspections/${props.License}`
+    //     ).then(data => {
+    //         fetch('https://itc-yair-gunicorn-flask.herokuapp.com/json', {
+    //             method: "POST",
+    //             headers: {
+    //                 "content-type": "application/json",
+    //             },
+    //             body: data
+    //             })
+    //             .then(r => r.json())
+    //             .then(d => setPredicted(d))
+    //         })
+    //         .catch(e => console.log(e))
+
         
-    }, [])
+    // }, [])
 
     return (
       <div className="history-restaurant our">

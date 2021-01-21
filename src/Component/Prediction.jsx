@@ -44,6 +44,10 @@ export default function Prediction(props) {
             </h3>
             {labels.length && dataGraph.length && (
               <div>
+                <div className="container-prediction d-flex flex-row align-items-center justify-content-around ">
+                  <OurPrediction License={props.restaurant.License} />
+                </div>
+                <br />
                 <div className="container-prediction d-flex flex-row align-items-center justify-content-around">
                   <div className="history-restaurant">
                     <Form.Row className="mt-4 mx-3">
@@ -120,11 +124,6 @@ export default function Prediction(props) {
                       <Charts labels={labels} dataGraph={dataGraph} />
                     )}
                   </div>
-                </div>
-
-                <br />
-                <div className="container-prediction d-flex flex-row align-items-center justify-content-around ">
-                  <OurPrediction License={props.restaurant.License} />
                 </div>
               </div>
             )}
