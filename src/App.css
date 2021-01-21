@@ -1,12 +1,13 @@
 .App {
   background-color: rgb(223, 215, 215);
-  background-size: 100% 100%;
+  background-size: 100vw 100vh;
   background-image: url(./lib/Logo.jpeg);
+  background-repeat: repeat-y;
   padding: 0;
   color: white;
   font-size: 20px;
-min-height: 100vh;  
-text-align: start;
+  min-height: 100vh;
+  text-align: start;
 }
 
 .btns {
@@ -25,4 +26,13 @@ text-align: start;
   color: white;
   font-weight: 700;
   font-size: large;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.titleBtn {
+  cursor: pointer;
 }

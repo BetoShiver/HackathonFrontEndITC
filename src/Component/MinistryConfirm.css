@@ -1,0 +1,14 @@
+.box {
+    align-self: center;
+    background-color: rgb(235, 207, 207);
+    margin: auto;
+    width: 60vw;
+    font-size: larger;
+    font-weight: 700;
+    height: 7rem;
+    vertical-align: middle;
+}
+
+.button {
+    background-color: rgb(140, 171, 205) ;color: white;
+}
